@@ -1,2 +1,2 @@
 # RAG
-### BAIR / RiseLab Take-Home Project
+### BAIR / RISELab Take-Home Project
