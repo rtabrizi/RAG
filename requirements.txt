@@ -1,0 +1,7 @@
+streamlit
+torch
+numpy
+faiss-cpu
+PyPDF2
+transformers==4.27.4
+langchain
