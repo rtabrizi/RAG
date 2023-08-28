@@ -46,7 +46,7 @@ Because I ultimately opted for an extractive answer generator, I was aware that 
 
 ## Installation
 
-**Note**: there appears to be dependency issues when trying to install and run this repo locally on an M1 MBP. The project specifications mention a jupyter notebook and I was asked to make a UI. For polished code, please inspect `app.py` but otherwise you can find my overall implementation in the notebook, including ad hoc text inspection and querying. This also includes the code for the sample outputs and failure cases at the bottom of the README.md.
+In order to use basic terminal UI for attention paper QA. main.py will create assets/attention.pdf if you don't already have the appropriate directory and pdf.
 
 Complete the following steps:
 1. clone the repository to your desired location using `git clone https://github.com/rtabrizi/RAG.git`
@@ -56,12 +56,11 @@ Complete the following steps:
 3. Set up a virtual environment to manage dependencies:
     `python -m venv venv`
     
-4. Activate the virtual environment: `.\venv\Scripts\activate`
+4. Activate the virtual environment: `source venv/bin/activate`
 
-5. Install the requirements: `pip install -r requirements.txt
-`
+5. Install the requirements: `pip install -r requirements.txt`
 
-Run the Streamlit app: `pip install -r requirements.txt`
+6. Run the script: `python main.py`
 
 ---
 
