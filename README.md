@@ -4,8 +4,9 @@
 This is my RAG implementation for PDF question answering. The PDF is the original *Attention Is All You Need* paper and the questions are based on architectural and design choices for the paper.
 
 ## Usage
-This project was developed almost exclusively in Google Colab on an A100 GPU but was adapted to Streamlit. The colab notebook can be found [here](https://colab.research.google.com/drive/1RnoNBC__hs8fzz6-vCfxBH13Jxl2A5a8?usp=sharing) and is self-contained, meaning you can run it from top to bottom to observe functionality.
-The streamlit app is very finnicky and I must host it on my end on huggingface spaces. Outputs between this and the colab are not consistent and I suspect there is an indexing issue going on that is causing these incoherent outputs.
+This project was developed almost exclusively in Google Colab on an A100 GPU but was adapted to a simple terminal UI in `main.py`. The colab notebook can be found [here](https://colab.research.google.com/drive/1RnoNBC__hs8fzz6-vCfxBH13Jxl2A5a8?usp=sharing) and is self-contained, meaning you can run it from top to bottom to observe functionality. I created a streamlit app for hosted interaction but it proved too slow and finnicky. If you'd like the code, you can find it in `misc/app.py`.
+
+Upon following the installation instructions below and running main.py, you will be able to work with the QA system.
 
 ## Design Choices and Component Descriptions
 
