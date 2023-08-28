@@ -23,7 +23,7 @@ All the chunks are stored in a list attribute in the retriever object. We then u
 The RAG is represented as a python class whose main components are the generator model and tokenizer saved as attributes, as well as a retriever object saved as an attribute.
 
 **Generator** \
-I use a BARTForQuestionAnswering instance to generate the answers upon getting the updated prompt and context from the retriever. BARTForQuestionAnswering is an extractive QA model in that it simply extracts the indices corresponding to the highest logits based on the prompt. As such, the model is incapable of generating text truly on its own and instead extracts content from the context and, in some cases, the original question itself. In the reflection below, I discuss why this design choice was made.
+I use a BARTForQuestionAnswering instance to generate the answers upon getting the updated prompt and context from the retriever. BARTForQuestionAnswering is an extractive QA model in that it simply extracts the indices corresponding to the highest logits based on the prompt. As such, the model is incapable of generating text truly on its own and instead extracts content from the context and, in some cases, the original question itself. In the reflection below, I discuss why this design choice was made. Because my generator is extractive and not adaptive, there isn't quite a notion of a RAG-Sequence Model vs. RAG-Token Model since I'm not generating conditioned text but am instead extracting tokens from the generator input.
 
 ### Reflection, More Design Choices
 
@@ -43,7 +43,7 @@ Instead of an adaptive generator, I opt for an extractive answer generator which
 I left a colab cell that displays what the retrieved context is based on a particular query. I observed that the context that a human expert would choose is often retrieved but isn't necessarily the top neighbor/chunk or even in the top 5 closest chunks. I had originally opted to use the `"facebook/dpr-ctx_encoder-multiset-base"` context encoder and switched to the NQ encoder and observed improvement in this regard. This yielded some improved retrieval but there is still plenty of room for improvement, including trying even more context and question encoders and altering the chunk length.
 
 #### Prompt Engineering
-Because I ultimately opted for an extractive answer generator, I was aware that the queries I provided would have to be similar in structure and language to the actual text from the paper. You can see my attempt in the first 3 queries in the **Failure Cases** section down below. These 3 prompts are largely similar but exhibit different results. 
+Because I ultimately opted for an extractive answer generator, I was aware that the queries I provided would have to be similar in structure and language to the actual text from the paper. Below you can see how permutations and slight variations of the same semantic query yield different generated answers (in some cases, complete gibberish).
 
 ## Installation
 
